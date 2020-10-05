@@ -12,4 +12,3 @@ kubectl create secret docker-registry aws-registry \
 --docker-username=$DOCKER_USER \
 --docker-password=$DOCKER_PASSWORD \
 --docker-email=no@email.local
-kubectl patch serviceaccount default -p '{"imagePullSecrets":[{"name":"aws-registry"}]}'
