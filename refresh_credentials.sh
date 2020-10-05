@@ -6,8 +6,8 @@ DOCKER_USER=AWS
 DOCKER_PASSWORD=`aws ecr get-login --region ${AWS_REGION} --registry-ids ${AWS_ACCOUNT} | cut -d' ' -f6`
 echo "DOCKER_REGISTRY_SERVER=$DOCKER_REGISTRY_SERVER"
 echo "DOCKER_USER=$DOCKER_USER"
-kubectl delete secret aws-registry || true
-kubectl create secret docker-registry aws-registry \
+kubectl delete secret --namespace $TARGET_NAMESPACE aws-registry || true
+kubectl create secret --namespace $TARGET_NAMESPACE docker-registry aws-registry \
 --docker-server=$DOCKER_REGISTRY_SERVER \
 --docker-username=$DOCKER_USER \
 --docker-password=$DOCKER_PASSWORD \
