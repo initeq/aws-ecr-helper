@@ -24,6 +24,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags:
-          - initeq/aws-ecr-helper:latest
-          - initeq/aws-ecr-helper:$SHORT_SHA
+        tags: |
+          initeq/aws-ecr-helper:latest
+          initeq/aws-ecr-helper:$SHORT_SHA
